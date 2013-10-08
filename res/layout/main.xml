@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<Spinner android:id="@+id/activities" android:visibility="gone"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+	</Spinner>
+	<Button android:id="@+id/startActivity" android:visibility="gone"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Start Selected Activity">
+	</Button>
+	<LinearLayout android:orientation="horizontal"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
+		<CheckBox android:id="@+id/recent"
+			android:text="Recent Activities" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:typeface="serif" />
+		<CheckBox android:id="@+id/broadcasts" android:text="Broadcasts"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:typeface="serif" />
+	</LinearLayout>
+	<CheckBox android:id="@+id/showDetails" android:text="Show details"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:typeface="serif" />
+	<LinearLayout android:orientation="horizontal"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
+		<Button android:id="@+id/updateView"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="Refresh	">
+		</Button>
+		<Button android:id="@+id/registerNull"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="Register"
+			android:visibility="gone">
+		</Button>
+	</LinearLayout>
+	<ScrollView android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<TextView android:id="@+id/output"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:text="" />
+	</ScrollView>
+</LinearLayout>

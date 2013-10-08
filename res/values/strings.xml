@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, IntentSniffer</string>
+    <string name="app_name">Intent Sniffer</string>
+    <string name="local_service_started">Http Intent Service Started</string>
+    <string name="local_service_label">Http Intent Logger</string>
+    <string name="local_service_stopped">Http Intent Loggin Stopped</string>
+</resources>
