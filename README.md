@@ -9,7 +9,7 @@ Tool for sniffing Recent activity as well as payload of SMS and future types of 
 
 2. Compile and Run the project from within eclipse, the only dependency is the turbo HTTP Async client which allows us to run quick, async HTTP communication to the Web comonent for logging data.
 
-3. For full use, the web interface is provided, or your own can be written, it provides full REST usage for storing and saving data.
+3. For full use, the web interface is provided in the following <a href="https://github.com/isotlab/Sniffer-Web">project</a>, or your own can be written, it provides full REST usage for storing and saving data.
 
 ## How it works
 
