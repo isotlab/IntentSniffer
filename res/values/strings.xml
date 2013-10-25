@@ -5,4 +5,7 @@
     <string name="local_service_started">Http Intent Service Started</string>
     <string name="local_service_label">Http Intent Logger</string>
     <string name="local_service_stopped">Http Intent Loggin Stopped</string>
+    <string name="edit_message">Phone Id</string>
+    <string name="button_register">Register Phone</string>
+    <string name="button_start">Start</string>
 </resources>
