@@ -4,15 +4,18 @@
 	android:versionCode="1" android:versionName="1.0.0">
 	<uses-sdk android:minSdkVersion="14" />
 	<!-- you may wish to add uses-permission declarations here to enable seeing 
-		 brodcasts protected with permissions -->
+		 broadcasts protected with permissions -->
 	<application android:icon="@drawable/icon"
 		android:label="@string/app_name" android:persistent="true">
 		<receiver android:name="com.isotlab.android.intentlogger.BroadcastSnooper">
-	            <intent-filter>
+	            <intent-filter android:priority="999">
+	                <action android:name="android.provider.Telephony.SMS_SENT" />
+        			<action android:name="com.isotlab.android.SMS_DELIVERED" />
+	                <action android:name="com.isotlab.android.SMS_RECEIVED" />
 	                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
 	            </intent-filter>
 	            <intent-filter>
-	                <action android:name="android.provider.Telephony.SMS_SENT" />
+	                <action android:name="android.intent.action.VIEW" />
 	            </intent-filter>
         </receiver>
 		<activity android:name="com.isotlab.android.intentlogger.ActivitySniffer"
@@ -29,4 +32,7 @@
 	<uses-permission android:name="android.permission.INTERNET" /> 
     <uses-permission android:name="android.permission.RECEIVE_SMS"/>
     <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+	<uses-permission android:name="android.permission.WRITE_SMS" />
+	<uses-permission android:name="android.permission.READ_CONTACTS" />
 </manifest>

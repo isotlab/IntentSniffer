@@ -77,6 +77,7 @@ public class LoggerThread extends Thread {
 			        nameValuePairs.add(new BasicNameValuePair("category", obj.getCategory()));
 			        nameValuePairs.add(new BasicNameValuePair("component", obj.getComponent()));
 			        nameValuePairs.add(new BasicNameValuePair("details", obj.getDetails()));
+			        nameValuePairs.add(new BasicNameValuePair("timestamp", obj.getTimestamp()));
 			        httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 			        
 			        // Execute HTTP Post Request

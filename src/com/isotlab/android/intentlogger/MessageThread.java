@@ -71,7 +71,8 @@ public class MessageThread extends HandlerThread {
 		                .add("action", obj.getAction())
 		                .add("category", obj.getCategory())
 		                .add("component", obj.getComponent())
-		                .add("details", obj.getDetails());
+		                .add("details", obj.getDetails())
+		                .add("timestamp", obj.getTimestamp());
 				httpClient.post("/activity", params, new AsyncCallback() {
 		            @Override
 		            public void onError(Exception e) {
